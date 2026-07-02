@@ -83,10 +83,10 @@ h2{font-size:clamp(31px,4.2vw,46px);color:var(--navy);letter-spacing:-1px}
 /* header */
 header{position:sticky;top:0;z-index:60;background:#ffd21e;border-bottom:1px solid rgba(0,0,0,.1)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:56px;height:46px;display:grid;place-items:center;flex-shrink:0}
-.logo-text{font-family:var(--font-display);font-weight:900;font-style:italic;text-transform:uppercase;font-size:17px;line-height:1.05;color:#111;letter-spacing:-.3px}
-.logo-text small{display:block;font-family:var(--font-display);font-style:italic;font-weight:800;font-size:9.5px;letter-spacing:2.2px;color:#6b5300;margin-top:3px;text-transform:uppercase}
+.logo{display:flex;align-items:center}
+.logo img{height:56px;width:auto;display:block}
+.footer-logo{background:#fff;border-radius:14px;padding:12px 18px;display:inline-block;margin-bottom:16px}
+.footer-logo img{height:58px;width:auto;display:block}
 .nav-links{display:flex;gap:28px;font-weight:700;font-size:15px}
 .nav-links a{position:relative;padding:6px 0;color:#232010}
 .nav-links a:hover{color:#000}
@@ -115,15 +115,15 @@ header{position:sticky;top:0;z-index:60;background:#ffd21e;border-bottom:1px sol
   .nav-cta .btn-phone{display:none}
 }
 @media(max-width:560px){
-  .logo-text{font-size:15px}
-  .logo-text small{font-size:8px;letter-spacing:1.6px}
-  .logo-mark{width:38px;height:38px}
+  .logo img{height:42px}
   .nav-cta{gap:8px}
-  .nav-cta .btn-orange{padding:10px 14px;font-size:13.5px;white-space:nowrap}
+  .nav-cta .btn-black{padding:10px 14px;font-size:13.5px;white-space:nowrap}
 }
 
 /* hero */
-.hero{background:radial-gradient(900px 480px at 110% -20%,rgba(245,184,0,.22) 0%,transparent 55%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:78px 0 84px;overflow:hidden;position:relative}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:78px 0 84px;overflow:hidden;position:relative}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:0;background:linear-gradient(100deg,rgba(13,16,22,.93) 0%,rgba(13,16,22,.8) 55%,rgba(150,112,10,.55) 100%)}
 .hero::after{content:"";position:absolute;left:-80px;bottom:-120px;width:360px;height:360px;border-radius:50%;border:54px solid rgba(255,255,255,.04);pointer-events:none}
 .hero .container{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:54px;align-items:center;position:relative;z-index:1}
 .hero .container>*{min-width:0}
@@ -290,23 +290,7 @@ footer a:hover{color:#fff}
 <header>
   <div class="container nav">
     <a href="#" class="logo">
-      <span class="logo-mark">
-        <svg width="56" height="46" viewBox="0 0 104 64" fill="none" aria-hidden="true">
-          <g fill="#111">
-            <rect x="47" y="2" width="10" height="12" rx="2"/>
-            <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(26 52 58)"/>
-            <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(-26 52 58)"/>
-            <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(52 52 58)"/>
-            <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(-52 52 58)"/>
-            <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(78 52 58)"/>
-            <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(-78 52 58)"/>
-          </g>
-          <path d="M16 58 A36 36 0 0 1 88 58" stroke="#111" stroke-width="11"/>
-          <path d="M27 58 A25 25 0 0 1 77 58" stroke="#fffbe8" stroke-width="6" stroke-linecap="round" stroke-dasharray="46 200"/>
-          <g fill="#111"><rect x="88" y="50" width="5" height="5"/><rect x="98" y="50" width="5" height="5"/><rect x="93" y="55" width="5" height="5"/><rect x="88" y="60" width="5" height="5"/><rect x="98" y="60" width="5" height="5"/></g>
-        </svg>
-      </span>
-      <span class="logo-text">East Grinstead<small>Auto Services Ltd</small></span>
+      <img src="assets/logo-header.png" alt="East Grinstead Auto Services Ltd">
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#services">Services</a>
@@ -324,6 +308,10 @@ footer a:hover{color:#fff}
 
 <!-- hero -->
 <div class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-hidden="true">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="container">
     <div>
       <div class="badge-row">
@@ -528,25 +516,9 @@ footer a:hover{color:#fff}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="#" class="logo" style="margin-bottom:16px">
-          <span class="logo-mark">
-            <svg width="56" height="46" viewBox="0 0 104 64" fill="none" aria-hidden="true">
-              <g fill="#fff">
-                <rect x="47" y="2" width="10" height="12" rx="2"/>
-                <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(26 52 58)"/>
-                <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(-26 52 58)"/>
-                <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(52 52 58)"/>
-                <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(-52 52 58)"/>
-                <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(78 52 58)"/>
-                <rect x="47" y="2" width="10" height="12" rx="2" transform="rotate(-78 52 58)"/>
-              </g>
-              <path d="M16 58 A36 36 0 0 1 88 58" stroke="#fff" stroke-width="11"/>
-              <path d="M27 58 A25 25 0 0 1 77 58" stroke="#ffd21e" stroke-width="6" stroke-linecap="round" stroke-dasharray="46 200"/>
-              <g fill="#ffd21e"><rect x="88" y="50" width="5" height="5"/><rect x="98" y="50" width="5" height="5"/><rect x="93" y="55" width="5" height="5"/><rect x="88" y="60" width="5" height="5"/><rect x="98" y="60" width="5" height="5"/></g>
-            </svg>
-          </span>
-          <span class="logo-text" style="color:#fff">East Grinstead<small style="color:#ffd21e">Auto Services Ltd</small></span>
-        </a>
+        <span class="footer-logo">
+          <img src="assets/logo-header.png" alt="East Grinstead Auto Services Ltd">
+        </span>
         <p style="max-width:280px">Your trusted local garage on London Road — MOT, servicing, repairs and diagnostics for East Grinstead and the surrounding villages.</p>
       </div>
       <div>
